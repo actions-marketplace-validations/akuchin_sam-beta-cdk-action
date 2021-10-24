@@ -1,0 +1,17 @@
+# action.yml
+name: 'sam-beta-cdk-action'
+description: 'sam-beta-cdk-action'
+branding:
+  icon: "terminal"
+  color: "orange"
+runs:
+  using: "composite"
+  steps:
+    - run: echo installing sam-beta-cdk
+      shell: bash
+    - run: curl -L "https://github.com/aws/aws-sam-cli/releases/download/sam-cli-beta-cdk/aws-sam-cli-linux-x86_64.zip" -o "samcli.zip" && unzip -q samcli.zip -d samcli && sudo ./samcli/install && rm samcli.zip && rm -rf samcli
+      shell: bash
+    - run: echo "Build using sam-beta-cdk"
+      shell: bash
+    - run: sam-beta-cdk build
+      shell: bash

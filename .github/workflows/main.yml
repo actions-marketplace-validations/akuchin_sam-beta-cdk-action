@@ -1,0 +1,13 @@
+name: Test Action
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    name: Test sam-beta-cdk
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akuchin/sam-beta-cdk-action@v2
